@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["v", "id", "iss", "cur", "amt", "bal", "iat", "st", "sig"],
+  "additionalProperties": false,
+  "properties": {
+    "v": { "type": "integer" },
+    "id": { "type": "string", "format": "uuid" },
+    "iss": { "type": "string" },
+    "typ": { "type": "string" },
+    "cur": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "amt": { "type": "number", "minimum": 0 },
+    "bal": { "type": "number", "minimum": 0 },
+    "iat": { "type": "string", "format": "date" },
+    "exp": { "type": "string", "format": "date" },
+    "st": {
+      "type": "string",
+      "enum": ["active", "redeemed", "blocked", "expired"]
+    },
+    "sig": { "type": "string" }
+  }
+}
