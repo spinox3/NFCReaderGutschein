@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NFC Freie-Tage Gutschein",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["v", "id", "days", "used"],
+
+  "properties": {
+    "v": {
+      "type": "integer",
+      "description": "Version der NFC-Speicherstruktur",
+      "minimum": 1
+    },
+    "id": {
+      "type": "string",
+      "description": "Eindeutige ID des NFC-Tags",
+      "minLength": 4,
+      "maxLength": 32
+    },
+    "days": {
+      "type": "integer",
+      "description": "Anzahl der freien Tage auf dem NFC-Tag",
+      "minimum": 0,
+      "maximum": 365
+    },
+    "used": {
+      "type": "boolean",
+      "description": "Gibt an, ob der Tag bereits eingelöst wurde"
+    }
+  }
+}
